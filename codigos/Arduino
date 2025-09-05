@@ -1,1 +1,39 @@
+String msj_anterior;
 
+String msj_actual;
+
+void setup()
+{
+  msj_anterior="";
+
+  msj_actual="";
+
+    //global_var_msj_anterior
+  //global_var_msj_actual
+
+  pinMode(7,INPUT);
+
+  Serial.begin(9600);
+}
+
+
+void loop()
+{
+
+
+        if (digitalRead(7) == 0) {
+      msj_actual = "mano";
+
+    } else {
+      msj_actual = "nada";
+
+    }
+    delay(3000);
+    if (msj_actual != msj_anterior) {
+      Serial.print(msj_actual);
+      msj_anterior = msj_actual;
+
+    }
+
+
+}
